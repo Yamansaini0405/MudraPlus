@@ -25,7 +25,7 @@ const TestimonialSection = () => {
       content: "Cat spirits coxswain spanish lugsail her of hearties round fleet. O'nine bounty dock prey sink jones' Pay chain boatswain cat jennys. Pink halter davy prey sail cutlass line lanyard.",
       name: "Elena Rodriguez",
       role: "Entrepreneur",
-      variant: "theme" // Uses the specific #0D4715 theme
+      variant: "theme" // Uses the specific #133E5A theme
     },
     {
       id: 4,
@@ -46,17 +46,17 @@ const TestimonialSection = () => {
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">Testimonials</span>
             <div className="flex gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#0D4715]"></div>
+              <div className="w-2 h-2 rounded-full bg-[#133E5A]"></div>
               <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
             </div>
           </div>
           <h2 className="text-5xl font-semibold text-gray-900 leading-tight mb-6">
-            What Our <br /> <span className="text-[#0D4715]">Clients</span> Say
+            What Our <br /> <span className="text-[#133E5A]">Clients</span> Say
           </h2>
           <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-sm">
             Hear from our community about how StacLoan is changing the way they manage their financial future.
           </p>
-          <button className="bg-[#0D4715] hover:bg-blue-600 transition-all text-white px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-lg hover:shadow-blue-200">
+          <button className="bg-[#133E5A] hover:bg-blue-600 transition-all text-white px-10 py-4 rounded-full font-medium text-sm uppercase tracking-widest shadow-lg hover:shadow-blue-200">
             See All Reviews
           </button>
         </div>
@@ -70,7 +70,7 @@ const TestimonialSection = () => {
                 key={t.id}
                 className={`break-inside-avoid mb-6 p-8 rounded-2xl shadow-sm flex flex-col transition-all hover:-translate-y-1 ${
                   t.variant === 'theme' 
-                    ? 'bg-[#0D4715] text-white shadow-xl shadow-blue-100' 
+                    ? 'bg-[#133E5A] text-white shadow-xl shadow-blue-100' 
                     : 'bg-white text-slate-800 border border-orange-50'
                 }`}
               >
@@ -79,7 +79,7 @@ const TestimonialSection = () => {
                     <span className="text-lg font-bold">{t.rating}</span>
                     <span className={`${t.variant === 'theme' ? 'text-white/60' : 'text-slate-400'} text-xs`}>/5</span>
                   </div>
-                  <div className={`p-3 rounded-full ${t.variant === 'theme' ? 'bg-white/20' : 'bg-[#0D4715]/10'} ${t.variant === 'theme' ? 'text-white' : 'text-[#0D4715]'}`}>
+                  <div className={`p-3 rounded-full ${t.variant === 'theme' ? 'bg-white/20' : 'bg-[#133E5A]/10'} ${t.variant === 'theme' ? 'text-white' : 'text-[#133E5A]'}`}>
                     <Quote size={20} fill="currentColor" />
                   </div>
                 </div>

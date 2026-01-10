@@ -68,12 +68,12 @@ const FAQSection = () => {
                   openIndex === index ? 'bg-cyan-100' : 'bg-white border border-gray-200'
                 }`}>
                   {openIndex === index 
-                    ? <Minus size={20} className="text-[#0D4715]" /> 
-                    : <Plus size={20} className="text-[#0D4715]" />
+                    ? <Minus size={20} className="text-[#133E5A]" /> 
+                    : <Plus size={20} className="text-[#133E5A]" />
                   }
                 </div>
                 <span className={`font-semibold text-lg ${
-                  openIndex === index ? 'text-[#0D4715]' : 'text-gray-700'
+                  openIndex === index ? 'text-[#133E5A]' : 'text-gray-700'
                 }`}>
                   {faq.question}
                 </span>
