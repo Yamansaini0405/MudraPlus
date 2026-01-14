@@ -42,7 +42,7 @@ const EMICalculator = () => {
     new Intl.NumberFormat("en-IN").format(val);
 
   return (
-    <section className="min-h-screen bg-blue-50 rounded-[10%] flex items-center justify-center px-6">
+    <section className="min-h-screen bg-blue-50 rounded-4xl md:rounded-[10%] flex items-center justify-center px-6 py-16 md:py-0">
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* LEFT PANEL */}
