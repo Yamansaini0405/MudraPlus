@@ -1,60 +1,89 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  BarChart3, Wallet, Headset, Landmark, 
-  Check, ArrowRight, Factory, Home, Heart, Car 
+import {
+  BarChart3, Wallet, Headset, Landmark,
+  Check, ArrowRight, Factory, Home, Heart, Car,
+  Calendar,
+  AlertCircle,
+  Briefcase
 } from 'lucide-react';
 
 const servicesData = [
   {
-    id: 'Life Insurance',
-    title: "Life Insurance",
-    shortDesc: "Industrial Insurance",
-    icon: <Factory className="w-5 h-5" />,
-    tabIcon: <BarChart3 className="w-5 h-5" />,
-    image: "https://img.freepik.com/free-photo/close-up-doctor-holding-wooden-cube_23-2149191359.jpg?semt=ais_hybrid&w=740&q=80",
-    fullTitle: "25 Years Of Experience In Financial Support",
-    longDesc: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet.",
-    features: ["Secured Loans", "Credit Facilities", "Cash Advanced"],
-    bgColor: "bg-[#d1f3f1]" // Soft Lime from image 1
-  },
-  {
-    id: 'Health Insurance',
-    title: "Health Insurance",
-    shortDesc: "Health Insurance",
-    icon: <Home className="w-5 h-5" />,
+    id: "Payday Loan",
+    title: "Payday Loan",
+    shortDesc: "Salary Advance",
+    icon: <Calendar className="w-5 h-5" />,
     tabIcon: <Wallet className="w-5 h-5" />,
-    image: "https://media.istockphoto.com/id/2129928358/photo/health-insurance-concept-hand-holding-wooden-cube-with-healthcare-medical-icon-family-life.jpg?s=612x612&w=0&k=20&c=CmQ5RgwVZzZQbHI_eyAcSdq6M-I_0sixo1fs0oRHNR4=",
-    fullTitle: "Strategic Investment Solutions for Growth",
-    longDesc: "Invest with confidence using our data-backed strategies. We help you navigate market volatility while securing long-term wealth for your business and family.",
-    features: ["Market Analysis", "Portfolio Growth", "Risk Management"],
-    bgColor: "bg-[#f9d7c1]" // Soft Peach
+    image:
+      "https://www.womansera.com/wp-content/uploads/2023/03/payday-loan.jpg",
+    fullTitle: "Bridge the Gap Until Your Next Paycheck",
+    longDesc:
+      "Our payday loans help you manage short-term cash shortages. Borrow small amounts for a few days or weeks and repay easily on your next salary date.",
+    features: [
+      "Short Tenure Loans",
+      "Flexible Repayment",
+      "No Collateral Required"
+    ],
+    bgColor: "bg-[#f9d7c1]"
   },
   {
-    id: 'Home Insurance',
-    title: "Home Insurance",
-    shortDesc: "Pet Insurance",
-    icon: <Heart className="w-5 h-5" />,
+    id: "Emergency Loan",
+    title: "Emergency Loan",
+    shortDesc: "Urgent Funds",
+    icon: <AlertCircle className="w-5 h-5" />,
     tabIcon: <Headset className="w-5 h-5" />,
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
-    fullTitle: "Expert Guidance for Modern Businesses",
-    longDesc: "Our consultants provide personalized roadmaps to help your business scale efficiently. From tax optimization to operational efficiency, we cover it all.",
-    features: ["Tax Planning", "Business Strategy", "Operational Audit"],
-    bgColor: "bg-[#fff3b0]" // Soft Yellow
+    image:
+      "https://media.istockphoto.com/id/1217182792/photo/emergency-fund-in-the-glass-jar-with-cash.jpg?s=612x612&w=0&k=20&c=La5TtTMTrlcAJVT8eDeRXcB7QbGPJvQ2VZF1Q0GpLiw=",
+    fullTitle: "Financial Support When You Need It Most",
+    longDesc:
+      "Unexpected expenses can arise anytime. Our emergency loans provide quick financial assistance with simple eligibility and fast processing.",
+    features: [
+      "24/7 Availability",
+      "Fast Processing",
+      "Transparent Charges"
+    ],
+    bgColor: "bg-[#fff3b0]"
   },
   {
-    id: 'Car Insurance',
-    title: "Car Insurance",
-    shortDesc: "Auto Insurance",
-    icon: <Car className="w-5 h-5" />,
+    id: "Small Business Loan",
+    title: "Small Business Loan",
+    shortDesc: "Business Growth",
+    icon: <Briefcase className="w-5 h-5" />,
     tabIcon: <Landmark className="w-5 h-5" />,
-    image: "https://media.istockphoto.com/id/1173046833/photo/sale-agent-deal-to-agreement-successful-car-loan-contract-with-customer-and-sign-agreement.jpg?s=612x612&w=0&k=20&c=0ZTfEfidz5PFLqXWu0lsAraXYbVLD4tWeoNaXM6cb2U=",
-    fullTitle: "Flexible Capital to Fuel Your Vision",
-    longDesc: "Access the funds you need without the headache. Our streamlined loan process ensures you get capital quickly with competitive interest rates tailored for you.",
-    features: ["Low Interest Rates", "Quick Approval", "Flexible Repayment"],
+    image:
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
+    fullTitle: "Short Term Capital for Your Business Needs",
+    longDesc:
+      "Manage cash flow, inventory, or operational expenses with our short-term business loans. Designed for small businesses that need quick capital without long commitments.",
+    features: [
+      "Quick Working Capital",
+      "Short Repayment Cycle",
+      "Competitive Interest Rates"
+    ],
     bgColor: "bg-[#e2f1b1]"
-  }
+  },
+  {
+
+    id: "Instant Cash Loan",
+    title: "Instant Cash Loan",
+    shortDesc: "Quick Disbursal",
+    icon: <Wallet className="w-5 h-5" />,
+    tabIcon: <BarChart3 className="w-5 h-5" />,
+    image:
+      "https://thumbs.dreamstime.com/b/quick-cash-loan-symbol-concept-words-wooden-blocks-beautiful-orange-background-alarm-clock-business-copy-space-394917975.jpg",
+    fullTitle: "Fast, Hassle-Free Short Term Loans",
+    longDesc:
+      "Get instant cash for urgent needs with our short-term loan solutions. Minimal documentation, fast approval, and transparent interest rates designed for quick financial relief.",
+    features: [
+      "Instant Approval",
+      "Same-Day Disbursal",
+      "Minimal Documentation"
+    ],
+    bgColor: "bg-[#d1f3f1]"
+  },
 ];
+
 
 const ServicesSection = () => {
   const [activeTab, setActiveTab] = useState(servicesData[0]);
@@ -62,7 +91,7 @@ const ServicesSection = () => {
   return (
     <div className="min-h-screen bg-[#ffffff] py-15 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header (Inspired by Image 1) */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-blue-200 text-blue-900 font-medium text-sm mb-4">
@@ -75,18 +104,17 @@ const ServicesSection = () => {
 
         {/* Layout Grid (Inspired by Image 2) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Sidebar Navigation */}
           <div className="lg:col-span-4 space-y-3 h-full">
             {servicesData.map((service) => (
               <button
                 key={service.id}
                 onClick={() => setActiveTab(service)}
-                className={`w-full h-25 flex items-center gap-4 p-5 rounded-xl transition-all duration-300 border text-lg font-semibold ${
-                  activeTab.id === service.id 
-                    ? "bg-blue-900 text-white border-blue-900 text-xl shadow-lg shadow-blue-200 scale-[1.02]" 
+                className={`w-full h-25 flex items-center gap-4 p-5 rounded-xl transition-all duration-300 border text-lg font-semibold ${activeTab.id === service.id
+                    ? "bg-blue-900 text-white border-blue-900 text-xl shadow-lg shadow-blue-200 scale-[1.02]"
                     : "bg-white text-slate-700 border-slate-100 hover:border-blue-300"
-                }`}
+                  }`}
               >
                 <span className={activeTab.id === service.id ? "text-white" : "text-blue-900"}>
                   {service.tabIcon}
@@ -110,9 +138,9 @@ const ServicesSection = () => {
                 {/* Image Section */}
                 <div className="relative">
                   <div className={`absolute -inset-4 ${activeTab.bgColor} opacity-50 rounded-[2rem] -rotate-3`}></div>
-                  <img 
-                    src={activeTab.image} 
-                    alt={activeTab.title} 
+                  <img
+                    src={activeTab.image}
+                    alt={activeTab.title}
                     className="relative z-10 rounded-2xl h-80 w-full object-cover shadow-lg"
                   />
                   {/* Floating Icon from Image 1 style */}
