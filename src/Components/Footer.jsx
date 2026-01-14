@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone } from 'lucide-react';
+import Logo2 from "../assets/Logo2b.png"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -61,8 +62,7 @@ const Footer = () => {
             {/* Branding Column */}
             <div className="space-y-6">
               <div className="flex items-center gap-1 text-3xl font-bold">
-                Mudra<span>Plus</span>
-                <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2"></div>
+               <img src={Logo2} alt="" className='h-30' />
               </div>
               <p className="text-white/70 text-sm leading-relaxed max-w-xs">
                 Tincidunt lobortis in adipiscing facilisi. Euismod facilisi in sit ut quis id morbi nunc ultrices. Tellus dictum placerat est et.
