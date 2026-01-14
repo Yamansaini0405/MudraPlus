@@ -65,7 +65,7 @@ const ServicesSection = () => {
         
         {/* Header (Inspired by Image 1) */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-blue-200 text-[#133E5A] font-medium text-sm mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-blue-200 text-blue-900 font-medium text-sm mb-4">
             Our Services
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -84,11 +84,11 @@ const ServicesSection = () => {
                 onClick={() => setActiveTab(service)}
                 className={`w-full h-25 flex items-center gap-4 p-5 rounded-xl transition-all duration-300 border text-lg font-semibold ${
                   activeTab.id === service.id 
-                    ? "bg-[#133E5A] text-white border-[#133E5A] text-xl shadow-lg shadow-blue-200 scale-[1.02]" 
+                    ? "bg-blue-900 text-white border-blue-900 text-xl shadow-lg shadow-blue-200 scale-[1.02]" 
                     : "bg-white text-slate-700 border-slate-100 hover:border-blue-300"
                 }`}
               >
-                <span className={activeTab.id === service.id ? "text-white" : "text-[#133E5A]"}>
+                <span className={activeTab.id === service.id ? "text-white" : "text-blue-900"}>
                   {service.tabIcon}
                 </span>
                 {service.title}
@@ -134,7 +134,7 @@ const ServicesSection = () => {
                     {activeTab.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-slate-700 font-semibold">
                         <div className="bg-blue-100 p-1 rounded-full">
-                          <Check className="w-4 h-4 text-[#133E5A]" />
+                          <Check className="w-4 h-4 text-blue-900" />
                         </div>
                         {feature}
                       </div>

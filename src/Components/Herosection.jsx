@@ -3,104 +3,130 @@ import { CheckCircle2, ChevronRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen w-full bg-white flex flex-col justify-center px-6 md:px-20 py-10 overflow-hidden font-sans">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Content */}
-          <div className="z-10 text-white space-y-6">
-            {/* Trusted Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#132e5a] border border-white/20 backdrop-blur-sm">
-              <div className="w-4 h-4 rounded-full border border-yellow-500/50 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-              </div>
-              <span className="text-xs font-medium text-gray-300">Trusted by 50,000+ customers</span>
-            </div>
+    <section className="relative bg-white overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-blue-100 rounded-full blur-3xl opacity-60"></div>
 
-            <h1 className="text-5xl md:text-7xl text-[#132e5a] font-bold leading-tight tracking-tight">
-              Get Your Dream <br /> Loan <br />
-              <span className="text-[#FF9F43]">With Best Rates</span>
-            </h1>
+      <div className="relative max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            <p className="text-[#132e5a] text-lg max-w-lg leading-relaxed">
-              Quick approval, flexible terms, and competitive interest rates. 
-              Make your dreams come true with our hassle-free loan solutions.
-            </p>
+        {/* LEFT CONTENT */}
+        <div>
+          <h1 className="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight">
+            Get your <br />
+            dream loan <br />
+            in a simple
+            way<span className="text-orange-500">.</span>
+          </h1>
 
-            {/* Features List */}
-            <ul className="space-y-3">
-              {[
-                "Instant approval in 24 hours",
-                "Interest rates starting at 3.5%",
-                "No hidden charges or fees"
-              ].map((feature, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-[#132e5a]">
-                  <CheckCircle2 className="text-[#FF9F43]" size={20} />
-                  <span className="text-sm font-medium">{feature}</span>
-                </li>
-              ))}
-            </ul>
+          {/* <p className="mt-6 text-gray-600 max-w-md">
+            We help customers achieve their goals by providing flexible loan
+            solutions with competitive rates and instant approval process.
+          </p> */}
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <button className="bg-[#FF9F43] hover:bg-[#e68a2e] text-white px-8 py-4 rounded-xl text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-orange-500/20">
-                Apply Now <ChevronRight size={18} />
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl text-sm font-bold transition-all">
-                Calculate EMI
-              </button>
-            </div>
-          </div>
+          <button className="mt-8 inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition">
+            Get Instant Loan
+            <span>→</span>
+          </button>
 
-          {/* Right Content */}
-          <div className="relative group">
-            {/* Main Image Container */}
-            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-              <img 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQicyoGbCXDasdpf0FvsgLG5_MLf2DxN_R1ow&s" 
-                alt="Happy family" 
-                className="w-full h-[500px] object-cover"
-              />
-              
-              {/* Floating Status Card */}
-              <div className="absolute bottom-8 left-8 right-8 bg-white rounded-2xl p-6 shadow-2xl flex justify-between items-center">
-                <div>
-                  <p className="text-gray-400 text-xs font-semibold mb-1">Your Loan Status</p>
-                  <p className="text-[#0a192f] text-2xl font-bold">Approved!</p>
-                </div>
-                <div className="text-right">
-                  <div className="flex items-center gap-2 text-[#FF9F43] justify-end">
-                    <div className="w-4 h-4 rounded-full border-2 border-[#FF9F43] border-t-transparent animate-spin"></div>
-                    <span className="text-xs font-bold uppercase tracking-wider">In 23 hours</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Background Glow */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[100px] rounded-full"></div>
+          {/* FEATURES */}
+          <div className="mt-12 space-y-6">
+            <Feature
+              title="Instant approval in 24 hours"
+              desc="Get quick decisions on your loan application with our streamlined process."
+              icon="⚡"
+            />
+            <Feature
+              title="Competitive interest rates from 2.5%"
+              desc="Enjoy some of the lowest rates in the market tailored to your needs."
+              icon="📈"
+            />
+            <Feature
+              title="100% secure and transparent process"
+              desc="Bank-level security with no hidden fees or charges guaranteed."
+              icon="🛡️"
+            />
           </div>
         </div>
 
-        {/* Bottom Stats Section */}
-        {/* <div className="mt-24 pt-12 border-t border-white/10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: "Loans Disbursed", value: "$2.5B+" },
-              { label: "Happy Customers", value: "50K+" },
-              { label: "Starting Rate", value: "3.5%" },
-              { label: "Partner Banks", value: "15+" }
-            ].map((stat, idx) => (
-              <div key={idx} className="space-y-1">
-                <p className="text-[#FF9F43] text-3xl font-bold">{stat.value}</p>
-                <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">{stat.label}</p>
+        {/* RIGHT CARDS */}
+        <div className="relative flex justify-center lg:justify-end">
+          {/* BACK CARD */}
+          <div className=" relative bg-white max-w-60 md:max-w-72 w-full rounded-2xl right-12 md:right-40 shadow-2xl p-6 rotate-[-9deg]">
+            <p className="text-gray-400 text-sm">Priya Sinha</p>
+            <h3 className="text-3xl font-bold text-blue-900 mt-2"> ₹180,000</h3>
+            <p className="text-gray-500 text-sm">Approved Loan Amount</p>
+
+            <div className="mt-4 bg-blue-600 text-white rounded-xl p-4">
+              <p className="text-sm">Monthly Payment</p>
+              <p className="text-2xl font-bold"> ₹550</p>
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="bg-orange-500 text-white rounded-xl p-3 text-center">
+                <p className="text-xs">Interest Rate</p>
+                <p className="font-bold">2.6%</p>
               </div>
-            ))}
+              <div className="bg-pink-500 text-white rounded-xl p-3 text-center">
+                <p className="text-xs">Tenure</p>
+                <p className="font-bold">15 months</p>
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <p className="text-sm text-gray-500 mb-2">Loan Status</p>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full w-[92%]"></div>
+              </div>
+              <p className="text-right text-sm text-blue-600 mt-1">92%</p>
+            </div>
           </div>
-        </div> */}
+
+          {/* FRONT CARD */}
+          <div className="absolute  bg-white max-w-66 md:max-w-72 w-76 rounded-2xl shadow-2xl p-6">
+            <p className="text-gray-400 text-sm">Ramesh Kumar</p>
+            <h3 className="text-3xl font-bold text-blue-900 mt-2">₹160,000</h3>
+            <p className="text-gray-500 text-sm">Approved Loan Amount</p>
+
+            <div className="mt-4 bg-blue-600 text-white rounded-xl p-4">
+              <p className="text-sm">Monthly Payment</p>
+              <p className="text-2xl font-bold">₹950</p>
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="bg-orange-500 text-white rounded-xl p-3 text-center">
+                <p className="text-xs">Interest Rate</p>
+                <p className="font-bold">3.8%</p>
+              </div>
+              <div className="bg-pink-500 text-white rounded-xl p-3 text-center">
+                <p className="text-xs">Tenure</p>
+                <p className="font-bold">15 yrs</p>
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <p className="text-sm text-gray-500 mb-2">Loan Status</p>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full w-[92%]"></div>
+              </div>
+              <p className="text-right text-sm text-blue-600 mt-1">92%</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
+
+const Feature = ({ title, desc, icon }) => (
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-orange-100 text-orange-500">
+      {icon}
+    </div>
+    <div>
+      <h4 className="font-semibold text-blue-900">{title}</h4>
+      <p className="text-gray-500 text-sm">{desc}</p>
+    </div>
+  </div>
+);
 
 export default HeroSection;

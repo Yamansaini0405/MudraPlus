@@ -31,7 +31,7 @@ const SecurityPrivacySection = () => {
   ];
 
   return (
-    <section className="bg-[#FF8810]/80 py-24 px-6 md:px-12 lg:px-24 font-sans rounded-b-4xl md:rounded-t-[10%] md:rounded-b-[10%]">
+    <section className="bg-blue-50 py-24 px-6 md:px-12 lg:px-24 font-sans rounded-b-4xl md:rounded-t-[10%] md:rounded-b-[10%]">
       <div className="max-w-7xl mx-auto">
         
         {/* Header matching your 'Why Us' style */}
@@ -40,11 +40,11 @@ const SecurityPrivacySection = () => {
             <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">Security</span>
             <div className="flex gap-1">
               <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-              <div className="w-2 h-2 rounded-full bg-[#133E5A]"></div>
+              <div className="w-2 h-2 rounded-full bg-blue-900"></div>
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 leading-tight">
-            How Secure & <span className="text-[#133E5A]">Private</span> We Are
+            How Secure & <span className="text-blue-900">Private</span> We Are
           </h2>
         </motion.div>
 
@@ -64,21 +64,21 @@ const SecurityPrivacySection = () => {
               {/* Central Glowing Shield Icon */}
               <div className="relative z-10 flex flex-col items-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#133E5A] blur-[60px] opacity-50 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 bg-blue-900 blur-[60px] opacity-50 rounded-full animate-pulse"></div>
                   <div className="relative bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-full shadow-[0_0_50px_rgba(29,161,242,0.3)]">
-                    <ShieldCheck size={80} className="text-[#133E5A]" strokeWidth={1.5} />
+                    <ShieldCheck size={80} className="text-blue-900" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>
 
               {/* Floating Badges (subtle motion) */}
               <motion.div className="absolute top-6 left-6 bg-white rounded-xl p-3 shadow-lg flex items-center gap-2 border border-slate-100" animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}>
-                <CheckCircle2 size={18} className="text-[#133E5A]" />
+                <CheckCircle2 size={18} className="text-blue-900" />
                 <span className="text-xs font-bold text-slate-800 uppercase">SSL Certified</span>
               </motion.div>
 
               <motion.div className="absolute bottom-6 right-6 bg-white rounded-xl p-3 shadow-lg flex items-center gap-2 border border-slate-100" animate={{ y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}>
-                <CheckCircle2 size={18} className="text-[#133E5A]" />
+                <CheckCircle2 size={18} className="text-blue-900" />
                 <span className="text-xs font-bold text-slate-800 uppercase">NDPR Compliant</span>
               </motion.div>
             </motion.div>
@@ -92,7 +92,7 @@ const SecurityPrivacySection = () => {
                   <span className="text-[10px] font-bold text-slate-400 uppercase ml-1 tracking-wider">{item.label}</span>
                   <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group h-full">
                     <div className="flex items-start gap-4">
-                      <div className="bg-[#133E5A] p-3 rounded-xl shadow-lg shadow-blue-100 group-hover:rotate-12 transition-transform">
+                      <div className="bg-blue-900 p-3 rounded-xl shadow-lg shadow-blue-100 group-hover:rotate-12 transition-transform">
                         {item.icon}
                       </div>
                       <div>
