@@ -36,7 +36,7 @@ const HeroSection = () => {
               icon="⚡"
             />
             <Feature
-              title="Competitive interest rates from 2.5%"
+              title="Competitive interest rates from 1%"
               desc="Enjoy some of the lowest rates in the market tailored to your needs."
               icon="📈"
             />
@@ -51,7 +51,7 @@ const HeroSection = () => {
         {/* RIGHT CARDS */}
         <div className="relative flex justify-center lg:justify-end">
           {/* BACK CARD */}
-          <div className=" relative bg-white max-w-60 md:max-w-72 w-full rounded-2xl right-12 md:right-40 shadow-2xl p-6 rotate-[-9deg]">
+          <div className=" relative bg-white max-w-60 md:max-w-72 w-full rounded-2xl right-4 md:right-40 shadow-2xl p-6 rotate-[-9deg]">
             <p className="text-gray-400 text-sm">Priya Sinha</p>
             <h3 className="text-3xl font-bold text-blue-900 mt-2"> ₹180,000</h3>
             <p className="text-gray-500 text-sm">Approved Loan Amount</p>
@@ -82,7 +82,7 @@ const HeroSection = () => {
           </div>
 
           {/* FRONT CARD */}
-          <div className="absolute  bg-white max-w-66 md:max-w-72 w-76 rounded-2xl shadow-2xl p-6">
+          <div className="absolute  bg-white max-w-66 md:max-w-72 w-76 rounded-2xl left-15 md:left-60 shadow-2xl p-6">
             <p className="text-gray-400 text-sm">Ramesh Kumar</p>
             <h3 className="text-3xl font-bold text-blue-900 mt-2">₹160,000</h3>
             <p className="text-gray-500 text-sm">Approved Loan Amount</p>
