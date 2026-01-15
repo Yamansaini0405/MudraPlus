@@ -4,9 +4,8 @@ const EMICalculator = () => {
   const [amount, setAmount] = useState(7000);
   const [interest, setInterest] = useState(0.7);
   const [tenure, setTenure] = useState(15);
-  const [tenureType, setTenureType] = useState("days");
 
-  const [emiPerWeek, setEmiPerWeek] = useState(0);
+  const [emiPerDay, setEmiPerDay] = useState(0);
   const [totalInterest, setTotalInterest] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -14,29 +13,24 @@ const EMICalculator = () => {
   const circumference = 2 * Math.PI * radius;
   const [interestRatio, setInterestRatio] = useState(0);
 
-  /* ================= BUSINESS LOGIC ================= */
+  /* ================= DAILY PAYDAY LOGIC ================= */
   useEffect(() => {
     const p = amount;
-    const annualRate = interest / 100;
+    const dailyRate = interest / 100;
+    const days = tenure;
 
-    // Convert tenure to weeks
-    const weeks =
-      tenureType === "days" ? tenure / 7 : tenure;
+    if (days <= 0) return;
 
-    if (weeks <= 0) return;
-
-    // Simple interest for short-term loans
-    const interestAmount =
-      p * annualRate * (weeks / 52);
-
+    // Flat Daily Interest Calculation
+    const interestAmount = p * dailyRate * days;
     const totalPayable = p + interestAmount;
-    const weeklyEmi = totalPayable / weeks;
+    const dailyEmi = totalPayable / days;
 
     setTotalInterest(Math.round(interestAmount));
     setTotalAmount(Math.round(totalPayable));
-    setEmiPerWeek(Math.round(weeklyEmi));
+    setEmiPerDay(Math.round(dailyEmi));
     setInterestRatio(interestAmount / totalPayable);
-  }, [amount, interest, tenure, tenureType]);
+  }, [amount, interest, tenure]);
 
   const formatCurrency = (val) =>
     new Intl.NumberFormat("en-IN").format(val);
@@ -51,7 +45,7 @@ const EMICalculator = () => {
             Payday Loan EMI Calculator
           </h2>
           <p className="text-gray-500 mt-2">
-            Loans designed for days & weeks
+            Instant loans with daily repayment plans
           </p>
 
           <div className="space-y-8 mt-10">
@@ -66,69 +60,55 @@ const EMICalculator = () => {
             />
 
             <Slider
-              label="Interest Rate"
+              label="Daily Interest Rate"
               value={`${interest} %`}
-              min={tenureType === "days" ? 0.7 : 1}
-              max={tenureType === "days" ? 1 : 10}
-              step={0.1}
+              min={0.7}
+              max={1.0}
+              step={0.01}
               state={interest}
               setState={setInterest}
             />
 
-            {/* Tenure */}
+            {/* Tenure (Strictly Days) */}
             <div>
               <div className="flex justify-between items-center mb-3">
                 <span className="font-semibold text-gray-700">
-                  Loan Tenure
+                  Loan Tenure (Days)
                 </span>
-
-                <div className="flex gap-2">
-                  {["days", "weeks"].map((type) => (
-                    <button
-                      key={type}
-                      onClick={() => {
-                        setTenureType(type);
-                        setTenure(type === "days" ? 15 : 2);
-                        setInterest(type === "days" ? 0.7 : 1);
-                      }}
-                      className={`px-4 py-1 rounded-full text-sm transition ${
-                        tenureType === type
-                          ? "bg-blue-900 text-white"
-                          : "bg-gray-200 text-gray-600"
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
+                <span className="bg-blue-900 text-white px-4 py-1 rounded-full text-xs uppercase font-bold">
+                  Days Only
+                </span>
               </div>
 
               <input
                 type="range"
                 min="1"
-                max={tenureType === "days" ? 45 : 6}
+                max="45"
+                step="1"
                 value={tenure}
                 onChange={(e) => setTenure(+e.target.value)}
                 className="w-full accent-blue-900"
               />
 
-              <p className="text-right text-sm text-gray-500 mt-1">
-                {tenure} {tenureType}
-              </p>
+              <div className="flex justify-between text-sm text-gray-500 mt-1">
+                <span>1 Day</span>
+                <span className="font-bold text-blue-900">{tenure} Days</span>
+                <span>45 Days</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT PANEL */}
         <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col items-center">
-          <p className="text-gray-500">EMI / Week</p>
+          <p className="text-gray-500">EMI / Day</p>
 
           <h3 className="text-4xl font-extrabold text-blue-900 mt-1">
-            ₹ {formatCurrency(emiPerWeek)}
+            ₹ {formatCurrency(emiPerDay)}
           </h3>
 
           <p className="text-sm text-gray-400 mb-6">
-            {interest}% Interest (Short Term)
+            {interest}% Interest (Per Day)
           </p>
 
           {/* DONUT */}
@@ -153,6 +133,7 @@ const EMICalculator = () => {
                 circumference * (1 - interestRatio)
               }
               strokeLinecap="round"
+              style={{ transition: 'stroke-dashoffset 0.5s ease' }}
             />
           </svg>
 
