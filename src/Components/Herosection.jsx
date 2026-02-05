@@ -1,16 +1,25 @@
 import React from 'react';
 import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import mockupImage from '../assets/mockUp.png';
+// import appApk from '../../public/app-release.apk';
+const handleApkDownload = () => {
+  const link = document.createElement('a');
+  link.href = '/app-release.apk';  // URL from public folder
+  link.download = 'MudraPlus.apk';
+  link.click();
+};
 
 const HeroSection = () => {
   return (
     <section className="relative bg-white overflow-hidden">
       {/* Background Gradient */}
-      <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute right-0 top-0 w-[600px] h-[600px]  rounded-full blur-3xl opacity-60"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT CONTENT */}
-        <div>
+        <div className='space-y-10'>
           <h1 className="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight">
             Get your <br />
             dream loan <br />
@@ -22,14 +31,41 @@ const HeroSection = () => {
             We help customers achieve their goals by providing flexible loan
             solutions with competitive rates and instant approval process.
           </p> */}
+          <div className="flex gap-4 ">
+            {/* Download Buttons */}
+            <motion.button 
+              className="h-12 hover:scale-105 transition-transform"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleApkDownload}
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Google Play"
+                className="h-full"
+              />
+            </motion.button>
+            <motion.button 
+              className="h-12 hover:scale-105 transition-transform"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleApkDownload}
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png"
+                alt="App Store"
+                className="h-full"
+              />
+            </motion.button>
+          </div>
 
-          <button className="mt-8 inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition">
+          <button className="mt- inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition">
             Get Instant Loan
             <span>→</span>
           </button>
 
           {/* FEATURES */}
-          <div className="mt-12 space-y-6">
+          <div className="mt-8 space-y-6">
             <Feature
               title="Instant approval in 24 hours"
               desc="Get quick decisions on your loan application with our streamlined process."
@@ -48,70 +84,33 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* RIGHT CARDS */}
-        <div className="relative flex justify-center lg:justify-end">
-          {/* BACK CARD */}
-          <div className=" relative bg-white max-w-60 md:max-w-72 w-full rounded-2xl right-4 md:right-40 shadow-2xl p-6 rotate-[-9deg]">
-            <p className="text-gray-400 text-sm">Priya Sinha</p>
-            <h3 className="text-3xl font-bold text-blue-900 mt-2"> ₹180,000</h3>
-            <p className="text-gray-500 text-sm">Approved Loan Amount</p>
+        {/* RIGHT MOCKUP IMAGE */}
+        <motion.div
+          className="relative flex justify-center lg:justify-end"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <div className="relative w-full max-w-sm">
+            <img
+              src={mockupImage}
+              alt="MudraPlus App Mockup"
+              className="w-full h-[45rem] drop-shadow-2xl rounded-[8%]"
+            />
 
-            <div className="mt-4 bg-blue-600 text-white rounded-xl p-4">
-              <p className="text-sm">Monthly Payment</p>
-              <p className="text-2xl font-bold"> ₹550</p>
-            </div>
-
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <div className="bg-orange-500 text-white rounded-xl p-3 text-center">
-                <p className="text-xs">Interest Rate</p>
-                <p className="font-bold">2.6%</p>
-              </div>
-              <div className="bg-pink-500 text-white rounded-xl p-3 text-center">
-                <p className="text-xs">Tenure</p>
-                <p className="font-bold">15 months</p>
-              </div>
-            </div>
-
-            <div className="mt-5">
-              <p className="text-sm text-gray-500 mb-2">Loan Status</p>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-blue-600 h-2 rounded-full w-[92%]"></div>
-              </div>
-              <p className="text-right text-sm text-blue-600 mt-1">92%</p>
-            </div>
+            {/* Floating Animation Circle */}
+            <motion.div
+              className="absolute -top-6 -right-6 w-24 h-24  rounded-full blur-2xl"
+              animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+            />
+            <motion.div
+              className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full blur-3xl"
+              animate={{ y: [0, 10, 0], x: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
+            />
           </div>
-
-          {/* FRONT CARD */}
-          <div className="absolute  bg-white max-w-66 md:max-w-72 w-76 rounded-2xl left-15 md:left-60 shadow-2xl p-6">
-            <p className="text-gray-400 text-sm">Ramesh Kumar</p>
-            <h3 className="text-3xl font-bold text-blue-900 mt-2">₹160,000</h3>
-            <p className="text-gray-500 text-sm">Approved Loan Amount</p>
-
-            <div className="mt-4 bg-blue-600 text-white rounded-xl p-4">
-              <p className="text-sm">Monthly Payment</p>
-              <p className="text-2xl font-bold">₹950</p>
-            </div>
-
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <div className="bg-orange-500 text-white rounded-xl p-3 text-center">
-                <p className="text-xs">Interest Rate</p>
-                <p className="font-bold">3.8%</p>
-              </div>
-              <div className="bg-pink-500 text-white rounded-xl p-3 text-center">
-                <p className="text-xs">Tenure</p>
-                <p className="font-bold">15 yrs</p>
-              </div>
-            </div>
-
-            <div className="mt-5">
-              <p className="text-sm text-gray-500 mb-2">Loan Status</p>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-blue-600 h-2 rounded-full w-[92%]"></div>
-              </div>
-              <p className="text-right text-sm text-blue-600 mt-1">92%</p>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
